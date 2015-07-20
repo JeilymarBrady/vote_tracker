@@ -1,0 +1,51 @@
+* {
+  border: 1px dashed black;
+}
+
+body {
+  background-color: aquamarine;
+}
+.pageTitle {
+  text-align: center;
+  padding: 2% 0 2% 0;
+}
+.content {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 55%;
+  flex-wrap: wrap;
+  margin: 0 21% 0 21%;
+  align-content: space-around;
+}
+
+.left {
+  position: relative;
+  align-self: auto;
+}
+
+.right {
+  position: relative;
+  align-self: auto;
+}
+
+.graph {
+  width: 250px;
+  height: 250px;
+  align-self: auto;
+  position: relative;
+}
+
+.submit{
+  background-color: lightblue;
+}
+
+.winner {
+  border: 2px;
+  border-color: green;
+}
+
+.loser {
+  border: 2px;
+  border-color: red;
+}
