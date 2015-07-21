@@ -10,6 +10,8 @@
 //PHOTO
 var Photo = function(name, path) {
   this.name = name;
+  //this.img = document.createElement('image');
+  //
   this.path = path;
   this.votes = 0;
 };
@@ -41,10 +43,6 @@ console.log(imgs);
 //NOT A FUNCTION ATM
 // var refreshPhotos = function() {
   var rand = Math.floor((Math.random() * 13) + 1);
-  var cat1 = imgs[rand];
-  var get1 = cat1.path;
-  var one = document.getElementById("imgL");
-  one.innerHTML = "<img src='" + get1 + "'/>";
   do {
     rand = Math.floor((Math.random() * 13) + 1);
     var cat2 = imgs[rand];
