@@ -15,6 +15,12 @@ var Photo = function(name, path) {
 };
 
   var imgs = [];
+// var path = './images/';
+// for(var i = 1; i < 15; i++){
+//   imgs.push(path + i + '.jpg');
+//   //imgs.push(new Photo(path + i + '.jpg'));
+// }
+// console.dir(imgs);
   imgs.push(img1 = new Photo("img1", './images/1.jpg'));
   imgs.push(img2 = new Photo("img2", './images/2.jpg'));
   imgs.push(img3 = new Photo("img3", './images/3.jpg'));
@@ -29,7 +35,7 @@ var Photo = function(name, path) {
   imgs.push(img12 = new Photo("img12", './images/12.jpg'));
   imgs.push(img13 = new Photo("img13", './images/13.jpg'));
   imgs.push(img14 = new Photo("img14", './images/14.jpg'));
-  console.log(imgs);
+console.log(imgs);
 // };
 
 //NOT A FUNCTION ATM
@@ -52,22 +58,35 @@ var Photo = function(name, path) {
 var left = document.getElementById("imgL");
 left.addEventListener('click', function(e){
   e.preventDefault();
-  cat1.votes++;
-  var scoreL = document.getElementById("leftscore");
-  scoreL.innerHTML = cat1.votes;
-  console.log("cat1: " + cat1.path + " " + cat1.votes);
-  console.log(imgs);
+  for(var i = 0; i<imgs.length; i++){
+    if(e.target.source===imgs[i]){
+console.log("match found: " + imgs[i]);
+      imgs[i].votes++;
+      var scoreL = document.getElementById("leftscore");
+      scoreL.innerHTML = imgs[i].votes;
+console.log("Left cat votes: " + imgs[i].votes);
+
+    }
+console.log("not finding a match");
+  }
+console.log(imgs);
 });
 
 //Updates after right click
 var right = document.getElementById("imgR");
 right.addEventListener('click', function(e){
   e.preventDefault();
-  cat2.votes++;
-  var scoreR = document.getElementById("rightscore");
-  scoreR.innerHTML = cat2.votes;
-  console.log("cat2: " + cat2.path + " " + cat2.votes);
-  console.log(imgs);
+  for(var i = 0; i<imgs.length; i++){
+    if(e.target.source===imgs[i]){
+console.log("match found: " + imgs[i]);
+      imgs[i].votes++;
+      var scoreR = document.getElementById("rightscore");
+      scoreR.innerHTML = imgs[i].votes;
+console.log("Right cat votes: " + imgs[i].votes);
+    }
+console.log("not finding a match");
+  }
+console.log(imgs);
 });
 
 //Triggers for two new cats
@@ -108,3 +127,29 @@ newBattle.addEventListener('click', function(e){
 //
 
 // });
+var data = [
+    {
+        value: 300,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Red"
+    },
+    {
+        value: 50,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Green"
+    },
+    {
+        value: 100,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "Yellow"
+    }
+];
+
+// And for a doughnut chart
+var graph = document.getElementById("graph").getContext('2d');
+var myDoughnutChart = new Chart(graph).Doughnut(data);
+
+// graph.innerHTML(myDoughnutChart);
