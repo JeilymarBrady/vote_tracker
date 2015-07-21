@@ -7,54 +7,90 @@
 
 // Your aim should be to compartmentalize repeatable actions into individual methods, and to use properties to store the data changes.
 
-
 //PHOTO
-var Photo = function() {
+var Photo = function(name, path) {
   this.name = name;
   this.path = path;
   this.votes = 0;
-  this.onclick = function() {
-    this.votes++;
-  };
-  one.addEventListener('click', this.onclick, false);
-  two.addEventListener('click', this.onclick, false);
-  // this.album = function() {
-  //   for(var i = 1; i < 15; i++){
-  //     var currentPic = i + '.jpg';
-  //     this.photos.push(currentPic);
-  //   }
-  };
+};
 
-//getPhotos()
-var imgs = ['./images/1.jpg', './images/2.jpg', './images/3.jpg', './images/4.jpg', './images/5.jpg', './images/6.jpg', './images/7.jpg', './images/8.jpg', './images/9.jpg', './images/10.jpg', './images/11.jpg', './images/12.jpg', './images/13.jpg', './images/14.jpg'];
-console.log(typeof(imgs));
-
-
-// var Tracker = function() {
+  var imgs = [];
+  imgs.push(img1 = new Photo("img1", './images/1.jpg'));
+  imgs.push(img2 = new Photo("img2", './images/2.jpg'));
+  imgs.push(img3 = new Photo("img3", './images/3.jpg'));
+  imgs.push(img4 = new Photo("img4", './images/4.jpg'));
+  imgs.push(img5 = new Photo("img5", './images/5.jpg'));
+  imgs.push(img6 = new Photo("img6", './images/6.jpg'));
+  imgs.push(img7 = new Photo("img7", './images/7.jpg'));
+  imgs.push(img8 = new Photo("img8", './images/8.jpg'));
+  imgs.push(img9 = new Photo("img9", './images/9.jpg'));
+  imgs.push(img10 = new Photo("img10", './images/10.jpg'));
+  imgs.push(img11 = new Photo("img11", './images/11.jpg'));
+  imgs.push(img12 = new Photo("img12", './images/12.jpg'));
+  imgs.push(img13 = new Photo("img13", './images/13.jpg'));
+  imgs.push(img14 = new Photo("img14", './images/14.jpg'));
+  console.log(imgs);
 // };
 
-// var getRandomPhotos = function() { and display()
+//NOT A FUNCTION ATM
+// var refreshPhotos = function() {
   var rand = Math.floor((Math.random() * 13) + 1);
-  var cat1 = this.imgs[rand];
+  var cat1 = imgs[rand];
+  var get1 = cat1.path;
   var one = document.getElementById("imgL");
-  one.innerHTML = "<img src='" + cat1 + "'/>";
-  console.log(cat1);
+  one.innerHTML = "<img src='" + get1 + "'/>";
   do {
     rand = Math.floor((Math.random() * 13) + 1);
-    var cat2 = this.imgs[rand];
-  } while (cat1 === cat2);
+    var cat2 = imgs[rand];
+    get2 = cat2.path;
+  } while (get1 === get2);
   var two = document.getElementById("imgR");
-  two.innerHTML = "<img src='" + cat2 + "'/>";
-
+  two.innerHTML = "<img src='" + get2 + "'/>";
 // };
 
-// var displayImg = function() {
-//   var picture = document.createElement("img");
+//Updates after left click
+var left = document.getElementById("imgL");
+left.addEventListener('click', function(e){
+  e.preventDefault();
+  cat1.votes++;
+  var scoreL = document.getElementById("leftscore");
+  scoreL.innerHTML = cat1.votes;
+  console.log("cat1: " + cat1.path + " " + cat1.votes);
+  console.log(imgs);
+});
 
-//   picture.src = './images/' + imgs[i];
-//   var one = document.getElementById("thisone");
-//   one.appendChild(picture);
-// };
+//Updates after right click
+var right = document.getElementById("imgR");
+right.addEventListener('click', function(e){
+  e.preventDefault();
+  cat2.votes++;
+  var scoreR = document.getElementById("rightscore");
+  scoreR.innerHTML = cat2.votes;
+  console.log("cat2: " + cat2.path + " " + cat2.votes);
+  console.log(imgs);
+});
+
+//Triggers for two new cats
+var newBattle = document.getElementById("button");
+newBattle.addEventListener('click', function(e){
+  e.preventDefault();
+    var rand = Math.floor((Math.random() * 13) + 1);
+  var cat1 = imgs[rand];
+  var get1 = cat1.path;
+  var one = document.getElementById("imgL");
+  one.innerHTML = "<img src='" + get1 + "'/>";
+  do {
+    rand = Math.floor((Math.random() * 13) + 1);
+    var cat2 = imgs[rand];
+    get2 = cat2.path;
+  } while (get1 === get2);
+  var two = document.getElementById("imgR");
+  two.innerHTML = "<img src='" + get2 + "'/>";
+  // refreshPhotos();
+});
+
+//Necessary call to get first two pictures
+//refreshPhotos();
 
 // Tracker.prototype.vote = function() {
 
