@@ -19,14 +19,10 @@ body {
   align-content: space-around;
 }
 
-.left {
+.left, .right {
   position: relative;
   align-self: auto;
-}
-
-.right {
-  position: relative;
-  align-self: auto;
+  padding: 1%;
 }
 
 .graph {
@@ -43,9 +39,4 @@ body {
 .winner {
   border: 5px solid;
   border-color: purple;
-}
-
-.loser {
-  border: 2px;
-  border-color: red;
 }
