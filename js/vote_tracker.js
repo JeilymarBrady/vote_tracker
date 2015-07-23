@@ -81,7 +81,6 @@ newBattle.addEventListener('click', function(e){
 
 //Chart
 function chart(l, r){
-
   var data = [
       {
           value: r,
@@ -96,12 +95,10 @@ function chart(l, r){
           label: "Left"
       }
   ];
-
   var graph = document.getElementById("graph").getContext('2d');
   var myDoughnutChart = new Chart(graph).Doughnut(data);
 }
 chart(1,1);
-
 var saveGame = function() {
   localStorage.setItem('images', JSON.stringify(imgs));
 };
