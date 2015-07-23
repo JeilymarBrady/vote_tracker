@@ -1,5 +1,15 @@
-pics = res.data.images;
-//Cat Constructor
+$(document).ready(function() {
+  var pics = [];
+  $.ajax({
+    url: 'https://api.imgur.com/3/album/DDoWy#0.json',
+    method: 'GET',
+    headers: {
+      'Authorization': 'Client-ID fc919a2e4fa23ab'
+    }
+  })
+  .done(function(res) {
+    pics = res.data.images;
+  //Cat Constructor
   var Photo = function(path){
     this.path       = path;
     this.img        = document.createElement('img');
@@ -98,3 +108,8 @@ pics = res.data.images;
       imgs[i].img.votes = newArray[i].img.votes;
     }
   }
+  })
+  .fail(function(err) {
+    console.log(err);
+  });
+});
