@@ -21,9 +21,11 @@ var Photo = function(path){
       if(e.target.parentElement.id === 'imgL'){
         otherVote = document.getElementById('imgR').children[0].votes;
         chart(targetVote, otherVote);
+        chart.stop();
       } else {
         otherVote = document.getElementById('imgL').children[0].votes;
         chart(otherVote, targetVote);
+        chart.stop();
       }
       saveGame();
     }
@@ -76,7 +78,7 @@ newBattle.addEventListener('click', function(e){
   $('img').removeClass('winner');
   getRandom();
   tracker.isNewBattle = true;
-  $('graph').fadeOut(chart());
+  chart(1,1);
 }, false);
 
 //Chart
