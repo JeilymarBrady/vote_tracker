@@ -1,0 +1,25 @@
+{
+  "name": "vote_tracker",
+  "version": "1.0.0",
+  "description": "Cute Cat Contest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JeilymarBrady/vote_tracker/"
+  },
+  "keywords": [
+    "vote",
+    "tracker",
+    "cat",
+    "cute",
+    "contest"
+  ],
+  "author": "Jeilymar Brady and Chris Holt",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.1"
+  }
+}

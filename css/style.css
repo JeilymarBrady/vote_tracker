@@ -1,0 +1,58 @@
+* {
+  font-family: Indie Flower;
+}
+
+body {
+  background-color: #35203B;
+}
+.pageTitle {
+  text-align: center;
+  padding: 2% 0 2% 0;
+  color: #CF4A30;
+}
+.content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+/*  margin: 0 21% 0 21%;*/
+  align-content: space-around;
+}
+
+.left, .right {
+  position: relative;
+  align-self: auto;
+  padding: 0 2% 0 2%;
+}
+
+.graph {
+  width: 250px;
+  height: 250px;
+  align-self: auto;
+  position: relative;
+}
+
+.submit {
+  background-color: #ED8C2B;
+  border: none;
+  border-radius: 100;
+  color: #35203B;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 10%;
+  font-size: 100%;
+}
+
+.winner {
+  border: 5px solid;
+  border-color: #911146;
+}
+
+.next{
+  width: 100%;
+  position: fixed;
+  display: block;
+  padding: 2%;
+}
