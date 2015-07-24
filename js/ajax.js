@@ -24,10 +24,10 @@ $(document).ready(function() {
         var otherVote = 0;
         if(e.target.parentElement.id === 'imgL'){
           otherVote = document.getElementById('imgR').children[0].votes;
-          chart(targetVote, otherVote);
+          chart(targetVote, '#911146', otherVote, '#CF4A30');
         } else {
           otherVote = document.getElementById('imgL').children[0].votes;
-          chart(otherVote, targetVote);
+          chart(otherVote, '#CF4A30', targetVote, '#911146');
         }
         saveGame();
       }
@@ -49,6 +49,7 @@ $(document).ready(function() {
     for(var i = 0; i < pics.length; i++){
       imgs.push(new Photo(pics[i].link));
     }
+    console.dir(imgs);
   }
   pullFromImgur();
   var tracker = new Tracker();
@@ -76,17 +77,17 @@ $(document).ready(function() {
     chart(1,1);
   }, false);
   //Chart
-  function chart(l, r){
+  function chart(l, coler, r, colur){
     var data = [
         {
             value: r,
-            color:"#F7464A",
+            color: colur,
             highlight: "#FF5A5E",
             label: "Right"
         },
         {
             value: l,
-            color: "#46BFBD",
+            color: coler,
             highlight: "#5AD3D1",
             label: "Left"
         }
@@ -94,7 +95,7 @@ $(document).ready(function() {
     var graph = document.getElementById("graph").getContext('2d');
     var myDoughnutChart = new Chart(graph).Doughnut(data);
   }
-  chart(1,1);
+  chart(1, '#911146', 1, '#CF4A30');
   //Saves the game
   var saveGame = function() {
     localStorage.setItem('images', JSON.stringify(imgs));
